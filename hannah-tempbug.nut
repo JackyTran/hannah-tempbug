@@ -121,11 +121,11 @@ local sensor = TemperatureSensor(I2C_89, 0x4c);
 // Output port to send temperature readings
 local output = OutputPort("Temperature", "number");
  
-// Capture and log a temperature reading every 5s
+// Capture and log a temperature reading every 5 mins
 function capture()
 {
     // Set timer for the next capture
-    imp.wakeup(30.0, capture);
+    imp.wakeup(300.0, capture);
  
     // Start a single shot conversion
     sensor.start(false);
